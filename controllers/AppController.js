@@ -11,7 +11,7 @@ class AppController {
     response.status(200).send(status);
   }
 
-  //the number of users and files in DB
+  // the number of users and files in DB
   static async getStats(request, response) {
     const stats = {
       users: await dbClient.nbUsers(),
