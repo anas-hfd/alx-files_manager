@@ -4,7 +4,7 @@ import redisClient from '../utils/redis';
 import userUtils from '../utils/user';
 
 class AuthController {
-  //Sign-in the user by generating a new authentication token
+  // Sign-in the user by generating a new authentication token
   static async getConnect(request, response) {
     const Authorization = request.header('Authorization') || '';
 
@@ -38,7 +38,7 @@ class AuthController {
     return response.status(200).send({ token });
   }
 
-  //Sign-out the user based on the token
+  // Sign-out the user based on the token
   static async getDisconnect(request, response) {
     const { userId, key } = await userUtils.getUserIdAndKey(request);
 

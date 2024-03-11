@@ -2,7 +2,7 @@ import redisClient from '../utils/redis';
 import dbClient from '../utils/db';
 
 class AppController {
-  //check if Redis is alive and if the DB is alive too
+  // check if Redis is alive and if the DB is alive too
   static getStatus(request, response) {
     const status = {
       redis: redisClient.isAlive(),

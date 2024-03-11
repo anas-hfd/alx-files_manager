@@ -5,7 +5,7 @@ const DB_PORT = process.env.DB_PORT || 27017;
 const DB_DATABASE = process.env.DB_DATABASE || 'files_manager';
 const url = `mongodb://${DB_HOST}:${DB_PORT}`;
 
-//performing operations with Mongo service
+// performing operations with Mongo service
 class DBClient {
   constructor() {
     MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
@@ -21,18 +21,18 @@ class DBClient {
     });
   }
 
-  //Checks if connection to Redis is Alive
+  // Checks if connection to Redis is Alive
   isAlive() {
     return Boolean(this.db);
   }
 
-  //Returns the number of documents in the collection users
+  // Returns the number of documents in the collection users
   async nbUsers() {
     const numberOfUsers = this.usersCollection.countDocuments();
     return numberOfUsers;
   }
 
-  //Returns the number of documents in the collection files
+  // Returns the number of documents in the collection files
   async nbFiles() {
     const numberOfFiles = this.filesCollection.countDocuments();
     return numberOfFiles;

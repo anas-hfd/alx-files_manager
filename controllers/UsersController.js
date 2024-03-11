@@ -55,7 +55,7 @@ class UsersController {
     return response.status(201).send(user);
   }
 
-  //retrieve the user base on the token used
+  // retrieve the user base on the token used
   static async getMe(request, response) {
     const { userId } = await userUtils.getUserIdAndKey(request);
 

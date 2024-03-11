@@ -10,7 +10,7 @@ const FOLDER_PATH = process.env.FOLDER_PATH || '/tmp/files_manager';
 const fileQueue = new Queue('fileQueue');
 
 class FilesController {
-  //create a new file in DB and in disk
+  // create a new file in DB and in disk
   static async postUpload(request, response) {
     const { userId } = await userUtils.getUserIdAndKey(request);
 
@@ -56,7 +56,7 @@ class FilesController {
     return response.status(201).send(newFile);
   }
 
-  //retrieve the file document based on the ID
+  // retrieve the file document based on the ID
   static async getShow(request, response) {
     const fileId = request.params.id;
 
@@ -83,7 +83,7 @@ class FilesController {
     return response.status(200).send(file);
   }
 
-  //should retrieve all users file documents for a specific
+  // retrieve all users file documents for a specific
   static async getIndex(request, response) {
     const { userId } = await userUtils.getUserIdAndKey(request);
 
@@ -132,7 +132,7 @@ class FilesController {
     return response.status(200).send(fileList);
   }
 
-  //set isPublic to true on the file document based on the ID
+  // set isPublic to true on the file document based on the ID
   static async putPublish(request, response) {
     const { error, code, updatedFile } = await fileUtils.publishUnpublish(
       request,
@@ -144,7 +144,7 @@ class FilesController {
     return response.status(code).send(updatedFile);
   }
 
-  //set isPublic to false on the file document based on the ID
+  // set isPublic to false on the file document based on the ID
   static async putUnpublish(request, response) {
     const { error, code, updatedFile } = await fileUtils.publishUnpublish(
       request,
@@ -156,7 +156,7 @@ class FilesController {
     return response.status(code).send(updatedFile);
   }
 
-  //return the content of the file document based on the ID
+  // return the content of the file document based on the ID
   static async getFile(request, response) {
     const { userId } = await userUtils.getUserIdAndKey(request);
     const { id: fileId } = request.params;
